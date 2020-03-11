@@ -9,8 +9,6 @@ export default props => {
         lastName: props.author.lastName
     })
 
-    
-
     const changeHandler = e => {
         setState({
             ...state,
@@ -29,7 +27,6 @@ export default props => {
             <p>{props.method}author</p>
             <Card variant="outlined">
                 <CardContent>
-                    {props.errors.map((err, index) => <p key={index} style={{color:'red'}}>{err}</p>)}
                     <form onSubmit={submitHandler}>
                         <label>First Name:</label>
                         <input type="text" name="firstName"
@@ -44,6 +41,7 @@ export default props => {
                         <Button onClick={e=>navigate('/authors')} style={{color:'white', background:'skyblue'}}>Cancel</Button>
                         <Button type="submit" style={{color:'white', background:'skyblue'}}>Submit</Button>
                     </form>
+                    {props.errors.map((err, index) => <p key={index} style={{color:'red'}}>{err}</p>)}
                 </CardContent>
             </Card>
             <Link to={'/authors'} style={{color:'skyblue'}}>
